@@ -1,5 +1,7 @@
 public class Products implements Comparable<Integer>{
     private static int staticID;
+    private String[] availableMaterials;
+    private String[] availableColors;
     private String productCode, color, material, printStatement;
     private int gender, numItems;
     private double price;
@@ -68,6 +70,22 @@ public class Products implements Comparable<Integer>{
     public void addItems(int numOfItemsToAdd){
         this.numItems+=numOfItemsToAdd;
         this.isAvailable=this.numItems>0;
+    }
+    public boolean isMaterialNew(String newMaterial){
+        for(String material: availableMaterials){
+            if(newMaterial==material){
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean isColorNew(String newColor){
+        for(String color: availableColors){
+            if(newColor==color){
+                return false;
+            }
+        }
+        return true;
     }
     @Override
     public int compareTo(Integer otherPrice){
