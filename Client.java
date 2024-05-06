@@ -24,7 +24,7 @@ public class Client {
     private static ArrayList<Client> Clients = new ArrayList<>()  ;
   
     
-    public Client(String PhoneNumber, String UserName,String Address,String Password,String Email,String Name) throws IllegalArgumentException,NumberFormatException{
+    public Client(String PhoneNumber, String UserName,String Address,String Password,String Email,String Name){
     
         setPhoneNumber(PhoneNumber);
        
@@ -47,7 +47,7 @@ public class Client {
        Clients.add(this);
      }
 
-   public void setUserName(String UserName) throws IllegalArgumentException{
+   public void setUserName(String UserName) {
        if(!isUserNameAvailable(UserName)){
           throw new IllegalArgumentException("Please enter a valid User Name");
                   }
