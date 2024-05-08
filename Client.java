@@ -44,75 +44,80 @@ public class Client {
    
        Clients.add(this);
      }
-
+// Method to set username
    public void setUserName(String UserName) {
        if(!isUserNameAvailable(UserName)){
           throw new IllegalArgumentException("Please enter a valid User Name");
                   }
        this.UserName=UserName;
    }
-  
+  // Method to set address
    public void setAddress(String Address){
        if (Address.isBlank()){
             throw new IllegalArgumentException("Please enter a valid Address");
        }
        this.Address=Address;
    }
-      
+      // Method to set password
    public void setPassword(String Password){
       if(Password.length()<=4){
            throw new IllegalArgumentException("Password is too short") ;  
       }
            this.Password=Password;
    }
-       
+       // Method to set Email
    public void setEmail(String Email){
        if (Email.isBlank()){
                 throw new IllegalArgumentException("Please enter a valid Email");
        }
        this.Email=Email;
    }
-           
-         public void setName(String Name){
-               if (!IsNameCorrect(Name)){
-          throw new IllegalArgumentException("Please enter a valid name");
-               }
-      this.Name=Name;
-   }
-    public void setPhoneNumber(String PhoneNumber){
+           // Method to set phonenumber
+             public void setPhoneNumber(String PhoneNumber){
       try {
             this.PhoneNumber = Long.parseLong(PhoneNumber);
         } catch (NumberFormatException e) {
              throw new NumberFormatException("Please enter valid a Phone Number");
         }
    } 
-   
+   // Method to get username
+
    
      public String getUserName(){
        return UserName;
    }
+// Method to get address
+
      public String getAddress(){
        return Address;
    }
+// Method to get password
+
        public String getPassword(){
        return Password;
    }
+// Method to get Email
+
          public String getEmail(){
        
              return Email;
-   }
-           public String getName(){
-       return Name;
-   }
-    public long  getPhoneNumber(){
+   }  
+// Method to get phonenumber
+  
+     public long  getPhoneNumber(){
        return PhoneNumber;
-   } public static int getNumOfClients(){
+   } 
+// Method to get number of clients
+
+public static int getNumOfClients(){
        return StaticID;
    }
+// Method to get ID
+
    public int getID(){
        return ID;
    }
-   
+       // Method to check if the username is valid
 private static boolean isUserNameAvailable(String UserName){
      
     if (UserName.isBlank()){
@@ -126,21 +131,7 @@ private static boolean isUserNameAvailable(String UserName){
     }  
         return true;
 }
-
-private static boolean IsNameCorrect(String Name){
-   if( Name.isBlank()){
-       return false;
-   }
-   else if (!Name.matches("[(a-zA-Z)]")){
-       return false;
-              
-   }
-   else{ 
-       return true ;
-               }
-   }
-    // Method to add a product to the shopping cart
-
+// // Method to get client's orders
 public  ArrayList<Order> GetOrders(){
     ArrayList<Order> InnerList = Order.getTotalOrders();
     for(Order order : InnerList){
@@ -155,7 +146,3 @@ public  ArrayList<Order> GetOrders(){
  
        
   
-
- 
-
-    // Other methods for managing orders (e.g., cancelOrder, getOrderById, etc.)
