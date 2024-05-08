@@ -4,9 +4,6 @@
  */
 package com.mycompany.onlineshopping;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author KAREEM
