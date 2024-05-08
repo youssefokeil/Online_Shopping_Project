@@ -18,7 +18,6 @@ public class Order {
     private static int TotalOrderscount;
     private List<Products> ShoppingCartProducts;
     private List<Integer> ShoppingCartQuantities;
-    private String OrderStatus;
     private Client client;
    private static ArrayList<Order>TotalOrders = new ArrayList<>();
     private int OrderID;
@@ -37,9 +36,13 @@ public class Order {
        ShoppingCartQuantities.addAll(quantities);
         
     }
+// Method to get the client who ordered
+
     public Client getclient(){
         return client;
     }
+// Method to get OrderID
+
     public int getOrderID(){
         return OrderID;
     }
@@ -88,26 +91,26 @@ public class Order {
     public boolean isEmpty() {
         return  ShoppingCartProducts.isEmpty();
     }
-
-    // Method to get the number of products in the order
+// Method to get the number of products in the order
     public int getProductCount() {
+        return ShoppingCartProducts.size();
+    }
+    // Method to get the total products quantity in the order
+    public int getTotalProductsQuantites() {
            int TotalQuantity = 0;
         for (int i = 0; i < ShoppingCartQuantities.size(); i++) {
              TotalQuantity +=  ShoppingCartQuantities.get(i);
          }
         return  TotalQuantity;
     }
+   
 
     // Method to clear all products from the order
-    public void CancelOrder() {
-        OrderStatus="CANCELED";      
+    public void CancelOrder() {    
         ShoppingCartProducts.clear();
        ShoppingCartQuantities.clear();
     }
     public static ArrayList<Order> getTotalOrders(){
     return TotalOrders;
     }
-    // Other methods for managing the order, such as processing payment, generating invoice, etc.
-
-    // Getters and setters
-}
+    }
