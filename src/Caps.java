@@ -1,8 +1,9 @@
-public class Pants extends Products {
-    public Pants(){
+public class Caps extends Products implements Graphical {
+    private boolean isGraphical;
+    public Caps(){
         super();
     }
-    public Pants(String material,String color,String size,
+    public Caps(String material,String color,String size,
                    int numItems, double price){
         super( material, color, size, numItems,  price);
         this.addToArray();
@@ -21,8 +22,15 @@ public class Pants extends Products {
     }
 
     @Override
+    public void makeGraphical(){
+        this.isGraphical=true;
+        this.setPrice(this.getPrice()+ADDED_FEE/2);
+        /// UI TO PUT NEW IMAGE /////
+
+    }
+    @Override
     public String toString(){
-        String s="Pant| "+this.getMaterial()+ "| " + this.getColor()+ "| " + this.getSize();
+        String s="Cap| "+this.getMaterial()+ "| " + this.getColor()+ "| " + this.getSize();
         return s;
     }
 }
