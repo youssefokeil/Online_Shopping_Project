@@ -1,21 +1,24 @@
-public class Products implements Comparable<Integer>{
+import java.util.ArrayList;
+
+public abstract class Products implements Comparable<Integer>{
+    public static ArrayList<Products> productsArray;
     private static int staticID;
-    private String[] availableMaterials;
-    private String[] availableColors;
-    private String productCode, color, material, printStatement;
-    private int gender, numItems;
-    private int size;
+    private String printStatement;
+    private String color, material;
+    private int numItems;
+    private String size;
     private double price;
     private boolean isAvailable;
     public Products(){
         staticID+=1;
     }
-    public Products(String material,String color,int gender,
-                    int numItems, double price, int size){
+    public Products(String material,String color,String size,
+                    int numItems, double price){
+        // update id using empty constructor
+        this();
         this.price=price;
         this.setNumItems(numItems);
         this.color=color;
-        this.gender=gender;
         this.isAvailable=(numItems>0);
         this.material=material;
         this.size=size;
@@ -32,16 +35,8 @@ public class Products implements Comparable<Integer>{
         }
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getProductCode() {
-        return productCode;
     }
 
     public double getPrice() {
@@ -52,12 +47,12 @@ public class Products implements Comparable<Integer>{
         this.price = price;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getColor() {
+        return color;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public String getMaterial() {
+        return material;
     }
 
     public boolean isAvailable() {
@@ -81,22 +76,6 @@ public class Products implements Comparable<Integer>{
         this.numItems+=numOfItemsToAdd;
         this.isAvailable=this.numItems>0;
     }
-    public boolean isMaterialNew(String newMaterial){
-        for(String material: availableMaterials){
-            if(newMaterial==material){
-                return false;
-            }
-        }
-        return true;
-    }
-    public boolean isColorNew(String newColor){
-        for(String color: availableColors){
-            if(newColor==color){
-                return false;
-            }
-        }
-        return true;
-    }
     @Override
     public int compareTo(Integer otherPrice){
         if(this.price>otherPrice){
@@ -113,18 +92,6 @@ public class Products implements Comparable<Integer>{
                 "\nNumber of items available: "+numItems+
                 String.format("\nPrice of one item is %.2f EGP ",price);
         System.out.println(s);
-    }
-    @Override
-    public String toString(){
-        String s=this.material+ "-" + this.color +"-"+ this.size;
-        return s;
-    }
-    @Override
-    public boolean equals(Object otherProduct) {
-        if (this.toString() == otherProduct.toString()) {
-            return true;
-        }
-        return false;
     }
 
 }
