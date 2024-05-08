@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.main;
-
+package com.mycompany.onlineshopping;
 import java.util.ArrayList;
 import java.util.*;
 
@@ -22,8 +21,7 @@ public class Client {
     private String Email;
     private String Name;
     private static ArrayList<Client> Clients = new ArrayList<>()  ;
-  
-    
+    private ArrayList<Order> Orders;
     public Client(String PhoneNumber, String UserName,String Address,String Password,String Email,String Name){
     
         setPhoneNumber(PhoneNumber);
@@ -43,7 +41,7 @@ public class Client {
         StaticID++;
        
        
-           
+   
        Clients.add(this);
      }
 
@@ -141,10 +139,23 @@ private static boolean IsNameCorrect(String Name){
        return true ;
                }
    }
-   
-}  
-       
-       
-      
+    // Method to add a product to the shopping cart
 
+public  ArrayList<Order> GetOrders(){
+    ArrayList<Order> InnerList = Order.getTotalOrders();
+    for(Order order : InnerList){
+        if(order.getclient().getUserName()==this.UserName){
+           Orders.add(order);
+        }
+            
+        }
+  return Orders;
+}
+}
+ 
+       
+  
 
+ 
+
+    // Other methods for managing orders (e.g., cancelOrder, getOrderById, etc.)
