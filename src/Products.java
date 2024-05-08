@@ -96,12 +96,12 @@ public abstract class Products implements Comparable<Integer>{
     }
 
     public abstract void addToArray();
+    public abstract String toString();
     @Override
     public boolean equals(Object otherProduct) {
-        if (Objects.equals(this.toString(), otherProduct.toString())) {
+        if (Objects.equals(this.toString(), otherProduct.toString())){
             ///using late binding it will be bound to each class to string method
             return true;
-
         }
         return false;
     }
