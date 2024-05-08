@@ -21,7 +21,7 @@ public class Client {
     private String Email;
     private String Name;
     private static ArrayList<Client> Clients = new ArrayList<>()  ;
-    private ArrayList<Order> Orders;
+    private ArrayList<Order> ClientOrders;
     public Client(String PhoneNumber, String UserName,String Address,String Password,String Email,String Name){
     
         setPhoneNumber(PhoneNumber);
@@ -132,15 +132,15 @@ private static boolean isUserNameAvailable(String UserName){
         return true;
 }
 // // Method to get client's orders
-public  ArrayList<Order> GetOrders(){
+public  ArrayList<Order> getClientOrders(){
     ArrayList<Order> InnerList = Order.getTotalOrders();
     for(Order order : InnerList){
-        if(order.getclient().getUserName()==this.UserName){
-           Orders.add(order);
+        if(order.getclient()== this){
+           ClientOrders.add(order);
         }
             
         }
-  return Orders;
+  return ClientOrders;
 }
 }
  
