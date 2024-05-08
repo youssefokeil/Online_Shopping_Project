@@ -13,15 +13,21 @@ public abstract class Products implements Comparable<Integer>{
     public Products(){
         staticID+=1;
     }
-    public Products(String material,String color,String size,
+    public Products(String material,String color,
                     int numItems, double price){
-        // update id using empty constructor
         this();
         this.price=price;
         this.setNumItems(numItems);
         this.color=color;
         this.isAvailable=(numItems>0);
         this.material=material;
+        this.size=size;
+
+    }
+    public Products(String material,String color,String size,
+                    int numItems, double price){
+        // update id using empty constructor
+        this(material,color,numItems,price);
         this.size=size;
     }
 

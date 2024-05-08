@@ -3,9 +3,9 @@ public class Caps extends Products implements Graphical {
     public Caps(){
         super();
     }
-    public Caps(String material,String color,String size,
+    public Caps(String material,String color,
                    int numItems, double price){
-        super( material, color, size, numItems,  price);
+        super( material, color, numItems,  price);
         this.addToArray();
     }
 
@@ -30,7 +30,7 @@ public class Caps extends Products implements Graphical {
     }
     @Override
     public String toString(){
-        String s="Cap| "+this.getMaterial()+ "| " + this.getColor()+ "| " + this.getSize();
+        String s="Cap| "+this.getMaterial()+ "| " + this.getColor();
         return s;
     }
 }

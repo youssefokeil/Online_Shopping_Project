@@ -1,18 +1,11 @@
-public class Pants extends Products {
-    int numSize;
-    public Pants(){
+public class Sneakers extends Products {
+    public Sneakers(){
         super();
     }
-    public Pants(String material,String color,int numSize,
-                   int numItems, double price){
-        super( material, color, numItems,  price);
-        this.numSize=numSize;
+    public Sneakers(String material,String color,String size,
+                 int numItems, double price){
+        super( material, color, size, numItems,  price);
         this.addToArray();
-
-    }
-
-    public int getNumSize() {
-        return numSize;
     }
 
     @Override
@@ -29,7 +22,7 @@ public class Pants extends Products {
 
     @Override
     public String toString(){
-        String s="Pant| "+this.getMaterial()+ "| " + this.getColor()+ "| " + this.getNumSize();
+        String s="Sneaker| "+this.getMaterial()+ "| " + this.getColor()+ "| " + this.getSize();
         return s;
     }
 }
