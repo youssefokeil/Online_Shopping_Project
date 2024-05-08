@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Products implements Comparable<Integer>{
     public static ArrayList<Products> productsArray;
@@ -92,6 +93,17 @@ public abstract class Products implements Comparable<Integer>{
                 "\nNumber of items available: "+numItems+
                 String.format("\nPrice of one item is %.2f EGP ",price);
         System.out.println(s);
+    }
+
+    public abstract void addToArray();
+    @Override
+    public boolean equals(Object otherProduct) {
+        if (Objects.equals(this.toString(), otherProduct.toString())) {
+            ///using late binding it will be bound to each class to string method
+            return true;
+
+        }
+        return false;
     }
 
 }

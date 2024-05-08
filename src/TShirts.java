@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class TShirts extends Products implements Graphical{
     private boolean isGraphical;
     public TShirts(){
@@ -11,7 +9,8 @@ public class TShirts extends Products implements Graphical{
         this.addToArray();
     }
 
-    private void addToArray(){
+    @Override
+    public void addToArray(){
 
         for(Products product: productsArray){
             if(this.equals(product)){
@@ -34,12 +33,5 @@ public class TShirts extends Products implements Graphical{
         String s="T-shirt| "+this.getMaterial()+ "| " + this.getColor()+ "| " + this.getSize();
         return s;
     }
-    @Override
-    public boolean equals(Object otherProduct) {
-        if (Objects.equals(this.toString(), otherProduct.toString())) {
-            return true;
 
-        }
-        return false;
-    }
 }
