@@ -132,17 +132,20 @@ private static boolean isUserNameAvailable(String UserName){
         return true;
 }
 // // Method to get client's orders
-public  ArrayList<Order> getClientOrders(){
+public  ArrayList<Order> GetOrders(){
+    Orders.clear();
     ArrayList<Order> InnerList = Order.getTotalOrders();
     for(Order order : InnerList){
-        if(order.getclient()== this){
-           ClientOrders.add(order);
+        if(order.getclient().getUserName()==this.UserName){
+           Orders.add(order);
         }
             
         }
-  return ClientOrders;
+  return Orders;
+}
+// Method to get client's number of orders
+public int NumberOfOrdersForClient(){
+  GetOrders();
+    return Orders.size();
 }
 }
- 
-       
-  
