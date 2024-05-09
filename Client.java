@@ -1,4 +1,4 @@
-/package com.mycompany.onlineshopping;
+package com.mycompany.onlineshopping;
 import java.util.ArrayList;
 import java.util.*;
 
