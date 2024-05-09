@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.onlineshopping;
+/package com.mycompany.onlineshopping;
 import java.util.ArrayList;
 import java.util.*;
 
@@ -34,7 +30,6 @@ public class Client {
       
         setEmail(Email);
        
-        setName(Name); 
        
        ID=StaticID;
         
@@ -132,20 +127,20 @@ private static boolean isUserNameAvailable(String UserName){
         return true;
 }
 // // Method to get client's orders
-public  ArrayList<Order> GetOrders(){
-    Orders.clear();
+public  ArrayList<Order> GetClientOrders(){
+    ClientOrders.clear();
     ArrayList<Order> InnerList = Order.getTotalOrders();
     for(Order order : InnerList){
-        if(order.getclient().getUserName()==this.UserName){
-           Orders.add(order);
+        if(order.getclient()==this){
+         ClientOrders.add(order);
         }
             
         }
-  return Orders;
+  return ClientOrders;
 }
 // Method to get client's number of orders
 public int NumberOfOrdersForClient(){
-  GetOrders();
-    return Orders.size();
+  GetClientOrders();
+    return ClientOrders.size();
 }
 }
