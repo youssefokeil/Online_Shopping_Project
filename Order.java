@@ -38,8 +38,8 @@ public class Order {
     public Client getclient(){
         return client;
     }
-// Method to get OrderID
 
+// Method to get OrderID
     public int getOrderID(){
         return OrderID;
     }
@@ -49,6 +49,7 @@ public class Order {
          ShoppingCartQuantities.add(quantity);
       
     }
+    
 
     // Method to remove a product from the order
     public void removeProduct(Products product) {
@@ -65,6 +66,11 @@ public class Order {
         return index != -1 ?  ShoppingCartQuantities.get(index) : 0;
     }
 
+    // Method to get product by index
+    public Products getProduct(int index){
+     return ShoppingCartProducts.get(index);
+    }
+    
     // Method to update the quantity of a product in the order
     public void updateProductQuantity(Products product, int quantity) {
         int index =  ShoppingCartProducts.indexOf(product);
