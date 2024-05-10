@@ -27,10 +27,10 @@ public class Order {
       OrderID= TotalOrderscount;
     }
 
-    public Order(Client client,List<Products> products, List<Integer> quantities) {
+    public Order(Client client,Products product, int quantity) {
        this(client);
-       ShoppingCartProducts.addAll(products);
-       ShoppingCartQuantities.addAll(quantities);
+       ShoppingCartProducts.add(product);
+       ShoppingCartQuantities.add(quantity);
         
     }
 // Method to get the client who ordered
